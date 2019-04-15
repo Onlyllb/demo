@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--setting配置 -->
+    <settings>
+        <!--Enabled 可行的，激活的 -->
+        <!--配置全局映射缓存 默认是TRUE -->
+        <setting name="cacheEnabled" value="true"/>
+        <!--延迟加载的全局开关，开启时，所有关联对象都会延迟加载 默认是false -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!--是否允许单一语句返回多个结果集 默认是 true -->
+        <setting name="multipleResultSetsEnabled" value="true"/>
+        <!--使用数据库中列标签代替列名，不同的驱动有不同的标签 默认是true -->
+        <setting name="useColumnLabel" value="true"/>
+        <!--Apache Derby 用java写的数据库 -->
+        <!--允许 JDBC 自动生成主键 如果设置为true的话 就强制使用自动生成的主键，尽管有些不兼容 Derby -->
+        <setting name="useGeneratedKeys" value="false"/>
+        <!--默认是PARTIAL -->
+        <setting name="autoMappingBehavior" value="PARTIAL"/>
+        <!--配置默认的执行器 SIMPLE就是普通的执行器 REUSE执行器会重用预处理语句 BATCH 批处理更新 -->
+        <setting name="defaultExecutorType" value="SIMPLE"/>
+        <!--设置超时时间，它决定驱动等待数据库响应的秒数 -->
+        <setting name="defaultStatementTimeout" value="25"/>
+        <!--防止JDBC内存溢出 -->
+        <!-- <setting name="defaultFetchSize" value="100" /> -->
+        <!--允许在嵌套语句中使用分页RowBounds 默认是false -->
+        <setting name="safeRowBoundsEnabled" value="false"/>
+        <!--是否开启自动驼峰命名规则 A_NAME aname -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--MyBatis利用本地缓存机制 防止循环引用和加速重复嵌套查询 默认值是SESSION 这种情况下 会把缓存放到一个会话上执行 STATEMENT 
+			本地会话仅用在语句执行上相当于sqlsession -->
+        <setting name="localCacheScope" value="SESSION"/>
+        <!--当没有参数提供JDBC类型，为空置指定JDBC类型 NULL VARCHAR OTHER -->
+        <setting name="jdbcTypeForNull" value="OTHER"/>
+    </settings>
+    <!--配置别名 -->
+    <typeAliases>
+        <package name="com.llb.po"/>
+    </typeAliases>
+
+    <mappers>
+        <mapper resource="airmapper.xml"></mapper>
+        <mapper resource="districtmapper.xml"></mapper>
+    </mappers>
+
+
+</configuration>
